@@ -216,3 +216,27 @@ const removeDuplicate = (arr)=>{
     console.log(crr);
 }
 removeDuplicate([1,1,1,1,1,2,2,2,2,3,4,4,4,5]);
+
+
+// Write a function that deep clones the nested object
+const deepCloneObject = (obj)=>{
+   // base case
+   if(obj === null || typeof obj !== 'object'){
+    return obj;
+   }
+
+   const newObj = Array.isArray(obj)? [] : {};
+   
+   Object.keys(obj).forEach((key)=>{
+        newObj[key] = deepCloneObject(obj[key]);
+   });
+   return newObj;
+}
+
+console.log(deepCloneObject({
+  id: 101,
+  username: "code_enthusiast",
+  fullName: "Alex Rivera"
+}));
+
+
