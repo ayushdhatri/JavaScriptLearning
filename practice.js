@@ -240,3 +240,58 @@ console.log(deepCloneObject({
 }));
 
 
+// Flatten An array
+const flatArray = (arr)=>{
+    // base case
+
+    let newarr = [];
+    arr.forEach((value, index, arr)=>{
+        let val = [];
+        if(Array.isArray(value)){
+            val = val.concat(flatArray(value));
+        }else{
+            val.push(value);
+        }
+        newarr = newarr.concat(val);
+    });
+    return newarr;
+}
+console.log(flatArray([1,[2,[3]]]));
+
+// frequency map in string
+
+const freqMap = (s)=>{
+    const arr = s.split('');
+    const freq = {};
+    arr.forEach((value)=>{
+        freq[value] = (freq[value] || 0) + 1;
+    });
+    console.log(freq);
+}
+
+freqMap("aba");
+
+// Creatae a function that uses a closure to maintain a private count variable
+// when someone ask you to do this simply createa a function which will return an inner function to modifiy data
+
+
+
+function createCounter(){
+    let counter = 0;
+    let increment = ()=>{
+        counter+=1;
+    }
+    let decrement = ()=>{
+        counter-=1;
+    }
+    let getCount = ()=>{
+        return counter;
+    }
+    return {increment,decrement,getCount};
+}
+
+const score = createCounter();
+console.log(score.increment());
+console.log(score.increment());
+console.log(score.getCount());
+
