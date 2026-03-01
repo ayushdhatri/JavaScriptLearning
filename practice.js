@@ -58,3 +58,59 @@ const fizzBuzz = (n)=>{
 
 fizzBuzz(5);
 
+// Question 6 valid palindrome
+const palindrome = (brr)=>{
+    //brr.sort((a,b)=> a - b);
+    let n = brr.lenght;
+    let i = 0, j = n-1;
+    while(i<j){
+        if(brr[i] != brr[j]){
+            return false;
+        }
+        i+=1;
+        j-=1;
+    }
+    return true;
+
+}
+
+let ans = palindrome([1,2,1]);
+if(ans == true){
+    console.log("Plindrom");
+}
+else{
+    console.log("not Valid Palindrome");
+}
+
+// Q- 7 Two Sum
+
+const twoSum = (arr, target)=>{
+    const seen = {};
+    for(let i = 0;i< arr.length;i++){
+        let complement = target - arr[i];
+        if(complement in seen){
+            return [seen[complement],i];
+        }
+        seen[arr[i]] = i;
+    }
+    
+
+
+}
+console.log(twoSum([2,7,11,5]));
+
+// Q- 8 Move Zeroes to the end of the arr
+const moveZeroes = (arr)=>{
+    let i = -1;
+    let n = arr.length;
+    for(let j = 0;j<n;j++){
+        if(arr[j] != 0){
+            // it is number
+            i++;
+           [arr[i],arr[j]] = [arr[j],arr[i]];
+        }
+    }
+    console.log(arr);
+
+}
+
