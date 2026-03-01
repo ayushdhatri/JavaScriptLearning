@@ -114,3 +114,43 @@ const moveZeroes = (arr)=>{
 
 }
 
+// Q-9 How to print the frequency 
+
+const getFrequency = (arr)=>{
+    const count = {};
+    for(const item of arr){
+        count[item] = (count[item] || 0) + 1;
+    }
+    return count;
+}
+
+console.log(getFrequency([1,1,2,3,2,1]));
+
+
+// Q - 10 check if array has duplicates:
+const findDuplicates = (arr)=>{
+    const seen = new Set();
+    const duplicates = [];
+    for(const num of arr){
+        if(seen.has(num)){
+            duplicates.push(num);
+        }
+        else{
+            seen.add(num);
+        }
+    }
+    return duplicates;
+
+}
+
+
+const removeDuplicats = (arr)=>{
+    console.log([...new Set(arr)]);
+}
+removeDuplicats([1,2,2,3,4,2,]);
+
+// flat a nested Array
+
+const crr =[1,[2,[3,4],5]];
+console.log(crr.flat(Infinity));
+
