@@ -154,3 +154,65 @@ removeDuplicats([1,2,2,3,4,2,]);
 const crr =[1,[2,[3,4],5]];
 console.log(crr.flat(Infinity));
 
+// Sum of Array
+const sumOfArrays = (arr)=>{
+    const sum = arr.reduce((total, value)=>{return total + value},0);
+    console.log(sum);
+}
+
+sumOfArrays([1,2,3,3]);
+
+// Write a function that takes an array and return only the even number
+const evenNumber = (arr)=>{
+    let num = [];
+    num = arr.filter((value, index, arr)=>{ 
+        if(value%2 == 0)return value;
+    });
+    console.log(num);
+}
+evenNumber([1,21,2,2,3]);
+
+
+// convert string to tital case ege hello world, Hello World
+const titleCase = (s)=>{
+    const arr = s.split(' ');
+    const brr = arr.map((value, index, arr)=>{
+        let temp = value;
+        console.log(temp[0].toUpperCase());
+       temp = temp[0].toUpperCase() + temp.slice(1);
+       return temp;
+
+    });
+    console.log(brr);
+    let ans = brr.join(' ');
+    console.log(ans);
+
+}
+
+let s = "hello world";
+titleCase(s);
+
+// count vowels in string
+const countVowel = (s)=>{
+    let count = 0;
+    for(let i = 0;i<s.length;i++){
+        if(s[i]  === 'a' || s[i] === 'A' ||
+            s[i] === 'e' || s[i] === 'E' ||
+            s[i] === 'i' || s[i] === 'I' ||
+            s[i] === 'o' || s[i] === 'O' ||
+            s[i] === 'u' || s[i] === 'U'){
+                count+=1;
+
+        }
+    }
+    console.log(count);
+
+}
+countVowel("ayush");
+
+// remove Duplicate
+const removeDuplicate = (arr)=>{
+    const crr = [...new Set(arr)];
+    console.log(crr);
+}
+removeDuplicate([1,1,1,1,1,2,2,2,2,3,4,4,4,5]);
